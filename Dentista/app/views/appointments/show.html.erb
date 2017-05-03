@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre Paciente:</strong>
+  <%= Pet.get_name(@appointment.pet_id) %>
+</p>
+
+<p>
+  <strong>Nombre Doctor:</strong>
+  <%= Doctor.get_name(@appointment.doctor_id) %>
+</p>
+
+<p>
+  <strong>Motivo Visita:</strong>
+  <%= @appointment.reason %>
+</p>
+
+<p>
+  <strong>Fecha de la cita:</strong>
+  <%= @appointment.appointment_date %>
+</p>
+
+
+<%= link_to 'Actualizar', edit_appointment_path(@appointment) %> |
+<%= link_to 'Regresar', appointments_path %>

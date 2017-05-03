@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Dentistas</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre Completo</th>
+      <th>Cedula</th>
+      <th>Ciudad</th>
+      <th>Estado</th>
+      <th>Nivel Academico</th>
+      <th>Años de Experiencia</th>
+      <th>Reconocimientos</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.address %></td>
+        <td><%= doctor.city %></td>
+        <td><%= doctor.state %></td>
+        <td><%= doctor.zip %></td>
+		<td><%= doctor.experience %></td>
+        <td><%= doctor.certified_by %></td>
+        <td><%= link_to 'Consultar', doctor%></td>
+        <td><%= link_to 'Actualizar', edit_doctor_path(doctor) %></td>
+        <td><%= link_to 'Baja', doctor, method: :delete, data: { confirm: '¿Está seguro de eliminar al doctor?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Dentista', new_doctor_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listado de Pacientes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Altura</th>
+      <th>Peso</th>
+      <th>Fecha de Nacimiento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead> 
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.breed %></td>
+        <td><%= pet.age %></td>
+        <td><%= pet.weight %></td>
+        <td><%= pet.last_appointment %></td>
+        <td><%= link_to 'Consultar', pet %></td>
+        <td><%= link_to 'Actualizar', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Baja', pet, method: :delete, data: { confirm: '¿Esta seguro de dar de baja al paciente?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Paciente', new_pet_path %>

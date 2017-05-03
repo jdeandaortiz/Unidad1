@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dentista Jesús</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="hero">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <% if session[:user_id] %>
+      <li class="active"><a><%= link_to "Inicio", root_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li class="active"><a><%= link_to "Dentistas", doctors_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li class="active"><a><%= link_to "Pacientes", pets_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li class="active"><a><%= link_to "Citas", appointments_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li class="active"><a><%= link_to 'Usuarios', users_path %> &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+  <li class="active"><a></a><a><%= button_to 'Cerrar Sesión', logout_path, method: :delete   %>
+        <% end %>
+        </a>
+      </li>
+    </ul>
+
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div class="container">
+    <%= yield %>  
+</div>
+  </div>
+</body>
+</html>
